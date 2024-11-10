@@ -1,0 +1,56 @@
+/* Styling for the clock widget */
+.clock-widget {
+  width: 100%;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin: 10px 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.clock-widget .timezone-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.clock-widget .time {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #333;
+}
+
+/* Apply specific styles for each time zone */
+.clock-widget.est {
+  background-color: #ffe0b2;
+}
+
+.clock-widget.utc {
+  background-color: #b3e5fc;
+}
+
+/* Styling for the time text */
+.clock-widget .time.est {
+  color: #f57c00; /* EST color */
+}
+
+.clock-widget .time.utc {
+  color: #039be5; /* UTC color */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .clock-widget {
+    padding: 8px;
+  }
+
+  .clock-widget .timezone-label {
+    font-size: 14px;
+  }
+
+  .clock-widget .time {
+    font-size: 20px;
+  }
+}

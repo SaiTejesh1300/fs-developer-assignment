@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function clock_widget_theme() {
+  return [
+    'clock_widget' => [
+      'variables' => [
+        'timezone' => NULL,
+        'time' => NULL,
+      ],
+      'template' => 'clock-widget',
+    ],
+  ];
+}

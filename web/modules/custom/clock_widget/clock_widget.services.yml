@@ -1,0 +1,4 @@
+services:
+  clock_widget.api_client:
+    class: Drupal\clock_widget\ClockApiClient
+    arguments: ['@http_client', '@logger.factory']

@@ -1,0 +1,19 @@
+name: lando-demo
+recipe: drupal11
+config:
+  webroot: web
+
+# Adding phpMyAdmin and Drush as additional tooling and services
+services:
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+
+tooling:
+  drush:
+    service: appserver
+    cmd: drush
+  phpmyadmin:
+    service: pma
+    cmd: phpmyadmin

@@ -1,0 +1,23 @@
+name: 'Clock Theme'
+type: theme
+description: 'A custom theme for displaying clock widgets with real-time updates.'
+base theme: olivero
+core_version_requirement: ^9 || ^10 || ^11
+libraries:
+  - clock_theme/clock_widget_styles
+  - clock_theme/clock_widget_scripts
+regions:
+  # Optionally redefine or add any custom regions if necessary
+  header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  hero: Hero (full width)
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  social: Social Bar
+  content_above: Content Above
+  content: Content
+  sidebar: Sidebar
+  content_below: Content Below
+  footer_top: Footer Top
+  footer_bottom: Footer Bottom

@@ -1,0 +1,40 @@
+<?php
+
+use Drupal\clock_widget\ClockApiClient;
+
+/**
+ * Implements hook_preprocess_block() for the clock widget block.
+ */
+function clock_theme_preprocess_block(array &$variables) {
+  // Check if this is the clock widget block.
+  if ($variables['plugin_id'] === 'clock_widget_block') {
+    // Attach the necessary libraries.
+    $variables['#attached']['library'][] = 'clock_theme/clock_widget';
+
+    // Get the ClockApiClient service from the clock_widget module.
+    /** @var \Drupal\clock_widget\ClockApiClient $clock_api_client */
+    $clock_api_client = \Drupal::service('clock_widget.api_client');
+
+    // Fetch the initial times for EST and UTC using the ClockApiClient.
+    $est_time = $clock_api_client->getTime('est');
+    $utc_time = $clock_api_client->getTime('utc');
+
+    // Pass these initial times into drupalSettings for JavaScript use.
+    $variables['#attached']['drupalSettings']['clock_widget'] = [
+      'initial_time_est' => $est_time,
+      'initial_time_utc' => $utc_time,
+    ];
+
+    // Prepare timezone data for use in the template.
+    $variables['timezones'] = [
+      [
+        'timezone' => 'EST',
+        'time' => $est_time ? date('H:i:s', strtotime($est_time)) : 'Unavailable',
+      ],
+      [
+        'timezone' => 'UTC',
+        'time' => $utc_time ? date('H:i:s', strtotime($utc_time)) : 'Unavailable',
+      ],
+    ];
+  }
+}

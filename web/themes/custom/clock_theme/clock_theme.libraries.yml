@@ -1,0 +1,12 @@
+clock_widget_styles:
+  css:
+    theme:
+      css/clock_widget.css: {}
+
+clock_widget_scripts:
+  js:
+    js/clock_widget.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
